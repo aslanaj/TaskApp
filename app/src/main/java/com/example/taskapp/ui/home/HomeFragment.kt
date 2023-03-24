@@ -32,10 +32,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
         return root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setFragmentResultListener(TASK_REQUEST) { key, bundle ->
@@ -44,14 +42,12 @@ class HomeFragment : Fragment() {
             adapter.addTask(result)
         }
         binding.apply {
-            rvHome.adapter =adapter
-            fab.setOnClickListener{
+            rvHome.adapter = adapter
+            fab.setOnClickListener {
                 findNavController().navigate(R.id.taskFragment)
             }
         }
-
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
