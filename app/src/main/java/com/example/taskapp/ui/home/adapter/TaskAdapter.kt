@@ -7,18 +7,17 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.taskapp.databinding.ItemTaskBinding
 import com.example.taskapp.model.Task
 
-class TaskAdapter: Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data: ArrayList<Task> = arrayListOf()
-
-    fun addTask(task: Task){
-        data.add(0,task)
+    fun addTask(task: Task) {
+        data.add(0, task)
         notifyItemChanged(0)
     }
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        return  TaskViewHolder(ItemTaskBinding
-            .inflate(LayoutInflater.from(parent.context), parent, false))
+        return TaskViewHolder(
+            ItemTaskBinding
+                .inflate(LayoutInflater.from(parent.context), parent, false)
+        )
     }
 
     override fun getItemCount(): Int = data.size
@@ -26,10 +25,8 @@ class TaskAdapter: Adapter<TaskAdapter.TaskViewHolder>() {
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(data[position])
     }
-
-
-    inner class TaskViewHolder(private val binding: ItemTaskBinding):ViewHolder(binding.root){
-        fun bind(task: Task){
+    inner class TaskViewHolder(private val binding: ItemTaskBinding) : ViewHolder(binding.root) {
+        fun bind(task: Task) {
             binding.apply {
                 tvTitle.text = task.title
                 tvDesc.text = task.desc
