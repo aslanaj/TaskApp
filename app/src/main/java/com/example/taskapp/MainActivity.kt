@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.taskFragment
             )
         )
-
         val bottomNavFragments = setOf(
             R.id.navigation_home,
             R.id.navigation_dashboard,

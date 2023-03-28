@@ -19,10 +19,6 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var profilePref: ProfilePref
-
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,19 +27,17 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         profilePref = ProfilePref(requireContext())
         setTextToEditText()
-        binding.imgProfile.loadImage(profilePref.getImageUri())
+
         saveImage()
-
     }
-
     private fun saveImage() {
+        binding.imgProfile.loadImage(profilePref.getImageUri())
         binding.imgProfile.setOnClickListener{
             val intentImage = Intent()
             intentImage.type = "image/*"
@@ -51,7 +45,6 @@ class ProfileFragment : Fragment() {
             launcher.launch(intentImage)
         }
     }
-
     private fun setTextToEditText() {
         binding.apply {
             etName.setText(profilePref.getNameText())
@@ -61,18 +54,14 @@ class ProfileFragment : Fragment() {
                     start: Int,
                     count: Int,
                     after: Int
-                ) {
-                }
-
+                ) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     profilePref.saveProfileNameText(s.toString())
                 }
-
                 override fun afterTextChanged(s: Editable?) {}
             })
         }
     }
-
 
     private val launcher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
