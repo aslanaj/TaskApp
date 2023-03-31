@@ -64,7 +64,6 @@ class OnBoardingAdapter(
                 btnStart.setOnClickListener {
                     onClick()
                 }
-
                 tvNext.setOnClickListener {
                     onClickNext()
                 }

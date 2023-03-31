@@ -10,6 +10,7 @@ import com.example.taskapp.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -23,7 +24,6 @@ class DashboardFragment : Fragment() {
         val root: View = binding.root
         return root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pref = Pref(requireContext())

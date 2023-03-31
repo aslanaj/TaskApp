@@ -11,14 +11,14 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import com.example.taskapp.data.local.ProfilePref
+import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.FragmentProfileBinding
 import com.example.taskapp.utils.loadImage
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private lateinit var profilePref: ProfilePref
+    private lateinit var pref: Pref
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,13 +31,13 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        profilePref = ProfilePref(requireContext())
+        pref = Pref(requireContext())
         setTextToEditText()
 
         saveImage()
     }
     private fun saveImage() {
-        binding.imgProfile.loadImage(profilePref.getImageUri())
+        binding.imgProfile.loadImage(pref.getImageUri())
         binding.imgProfile.setOnClickListener{
             val intentImage = Intent()
             intentImage.type = "image/*"
@@ -47,7 +47,7 @@ class ProfileFragment : Fragment() {
     }
     private fun setTextToEditText() {
         binding.apply {
-            etName.setText(profilePref.getNameText())
+            etName.setText(pref.getNameText())
             etName.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(
                     s: CharSequence?,
@@ -56,7 +56,7 @@ class ProfileFragment : Fragment() {
                     after: Int
                 ) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    profilePref.saveProfileNameText(s.toString())
+                    pref.saveProfileNameText(s.toString())
                 }
                 override fun afterTextChanged(s: Editable?) {}
             })
@@ -67,7 +67,7 @@ class ProfileFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 val photoUri = result.data?.data
-                profilePref.saveImageUri(photoUri.toString())
+                pref.saveImageUri(photoUri.toString())
                 binding.imgProfile.loadImage(photoUri.toString())
             }
         }

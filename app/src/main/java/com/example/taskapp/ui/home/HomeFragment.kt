@@ -1,7 +1,6 @@
 package com.example.taskapp.ui.home
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +24,6 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
@@ -34,7 +32,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dbSave()
-
         binding.apply {
             rvHome.adapter = adapter
             fab.setOnClickListener {
@@ -42,20 +39,16 @@ class HomeFragment : Fragment() {
             }
         }
     }
-    private fun onLongClick(task: Task){
+
+    private fun onLongClick(task: Task) {
         val alertDialog = AlertDialog.Builder(requireContext())
-        alertDialog.setTitle("Удалить")
-        alertDialog.setNegativeButton("НЕТ", object : DialogInterface.OnClickListener{
-            override fun onClick(dialog: DialogInterface?, p1: Int) {
-                dialog?.cancel()
-            }
-        })
-        alertDialog.setPositiveButton("ДА", object  : DialogInterface.OnClickListener{
-            override fun onClick(dialog: DialogInterface?, p1: Int) {
-                App.db.taskDao().delete(task)
-                dbSave()
-            }
-        })
+        alertDialog.setTitle("Delete task")
+        alertDialog.setMessage("Do you really want to delete this task?")
+        alertDialog.setNegativeButton("NO") { dialog, p1 -> dialog?.cancel() }
+        alertDialog.setPositiveButton("YES") { dialog, p1 ->
+            App.db.taskDao().delete(task)
+            dbSave()
+        }
         alertDialog.create().show()
     }
 
@@ -63,5 +56,4 @@ class HomeFragment : Fragment() {
         val data = App.db.taskDao().getAll()
         adapter.addTasks(data)
     }
-
 }

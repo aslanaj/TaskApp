@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.TaskApp" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#FF9800</item>
+        <item name="colorPrimary">@color/light_green</item>
         <item name="colorPrimaryVariant">#0F9D58</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
