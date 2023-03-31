@@ -8,8 +8,7 @@ import com.example.taskapp.databinding.ItemTaskBinding
 import com.example.taskapp.model.Task
 
 class TaskAdapter(
-    private val onLongClick: (Task) -> Unit
-) : Adapter<TaskAdapter.TaskViewHolder>() {
+    private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data: ArrayList<Task> = arrayListOf()
     fun addTask(task: Task) {
         data.add(0, task)

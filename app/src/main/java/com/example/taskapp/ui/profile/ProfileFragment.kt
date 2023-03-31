@@ -19,6 +19,16 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var pref: Pref
+
+    private val launcher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK && result.data != null) {
+                val photoUri = result.data?.data
+                pref.saveImageUri(photoUri.toString())
+                binding.imgProfile.loadImage(photoUri.toString())
+            }
+        }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,7 +43,6 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pref = Pref(requireContext())
         setTextToEditText()
-
         saveImage()
     }
     private fun saveImage() {
@@ -63,13 +72,5 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private val launcher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            if (result.resultCode == Activity.RESULT_OK && result.data != null) {
-                val photoUri = result.data?.data
-                pref.saveImageUri(photoUri.toString())
-                binding.imgProfile.loadImage(photoUri.toString())
-            }
-        }
 
 }

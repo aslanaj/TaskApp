@@ -16,7 +16,7 @@ interface TaskDao {
     fun delete(task: Task)
 
     //Сортировка title от А до Я ASC
-    //Сортировка title от А до Я DESC
+    //Сортировка title от Я до А DESC
     @Query("SELECT * FROM task ORDER BY title ASC")
     fun getAll(): List<Task>
 

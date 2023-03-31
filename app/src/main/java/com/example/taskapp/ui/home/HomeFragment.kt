@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.taskapp.App
@@ -46,6 +47,7 @@ class HomeFragment : Fragment() {
         alertDialog.setMessage("Do you really want to delete this task?")
         alertDialog.setNegativeButton("NO") { dialog, p1 -> dialog?.cancel() }
         alertDialog.setPositiveButton("YES") { dialog, p1 ->
+            Toast.makeText(requireContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show()
             App.db.taskDao().delete(task)
             dbSave()
         }
