@@ -34,7 +34,6 @@ class Pref(context: Context) {
 
     fun getImageUri(): String {
         return pref.getString(Pref.IMAGE_URI, "").toString()
-
     }
 
     companion object {
