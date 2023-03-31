@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.taskapp.R
 import com.example.taskapp.databinding.ItemTaskBinding
 import com.example.taskapp.model.Task
 
 class TaskAdapter(
-    private val onLongClick: (Task) -> Unit) : Adapter<TaskAdapter.TaskViewHolder>() {
+    private val onLongClick: (Task) -> Unit
+) : Adapter<TaskAdapter.TaskViewHolder>() {
     private val data: ArrayList<Task> = arrayListOf()
     fun addTask(task: Task) {
         data.add(0, task)
@@ -32,9 +34,15 @@ class TaskAdapter(
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(data[position])
+        if (position % 2 == 0) {
+            holder.itemTaskLayout.setBackgroundResource(R.drawable.bg_item)
+        } else {
+            holder.itemTaskLayout.setBackgroundResource(R.drawable.bg_item_orange)
+        }
     }
 
     inner class TaskViewHolder(private val binding: ItemTaskBinding) : ViewHolder(binding.root) {
+        val itemTaskLayout = binding.itemTaskLayout
         fun bind(task: Task) {
             binding.apply {
                 tvTitle.text = task.title
@@ -43,6 +51,7 @@ class TaskAdapter(
                     onLongClick(task)
                     false
                 }
+
             }
         }
     }

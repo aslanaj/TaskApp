@@ -45,15 +45,17 @@ class ProfileFragment : Fragment() {
         setTextToEditText()
         saveImage()
     }
+
     private fun saveImage() {
         binding.imgProfile.loadImage(pref.getImageUri())
-        binding.imgProfile.setOnClickListener{
+        binding.imgProfile.setOnClickListener {
             val intentImage = Intent()
             intentImage.type = "image/*"
             intentImage.action = Intent.ACTION_GET_CONTENT
             launcher.launch(intentImage)
         }
     }
+
     private fun setTextToEditText() {
         binding.apply {
             etName.setText(pref.getNameText())
@@ -63,10 +65,13 @@ class ProfileFragment : Fragment() {
                     start: Int,
                     count: Int,
                     after: Int
-                ) {}
+                ) {
+                }
+
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     pref.saveProfileNameText(s.toString())
                 }
+
                 override fun afterTextChanged(s: Editable?) {}
             })
         }

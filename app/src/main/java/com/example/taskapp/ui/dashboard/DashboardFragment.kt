@@ -24,6 +24,7 @@ class DashboardFragment : Fragment() {
         val root: View = binding.root
         return root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pref = Pref(requireContext())

@@ -8,12 +8,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.example.taskapp.R
 import com.example.taskapp.data.local.Pref
 import com.example.taskapp.databinding.FragmentOnBoardBinding
 import com.example.taskapp.ui.onBoard.adapter.OnBoardingAdapter
-import kotlinx.coroutines.processNextEventInCurrentThread
-import me.relex.circleindicator.CircleIndicator3
 
 class OnBoardFragment : Fragment() {
     private lateinit var binding: FragmentOnBoardBinding
@@ -44,12 +41,10 @@ class OnBoardFragment : Fragment() {
             }
         })
     }
-
     private fun onStartClick() {
         pref.saveSeen()
         findNavController().navigateUp()
     }
-
     private fun onNextClick() {
         binding.viewPager.currentItem += 1
     }
