@@ -1,5 +1,6 @@
 # Simple TaskApp
 ![alt text](https://github.com/aslanaj/TaskApp/blob/master/Images/TaskAppLogo.png)
+<img src="/screenshots/icon.png" height="200px"/> <br>
 
 Simple TaskApp will help manage your daily tasks and don't forget about important things! ⏰
 ## Screenshots:
