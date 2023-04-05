@@ -2,7 +2,7 @@ package com.example.taskapp.ui.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.taskapp.R
 import com.example.taskapp.databinding.ItemTaskBinding
@@ -10,7 +10,7 @@ import com.example.taskapp.model.Task
 
 class TaskAdapter(
     private val onLongClick: (Task) -> Unit
-) : Adapter<TaskAdapter.TaskViewHolder>() {
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     private val data: ArrayList<Task> = arrayListOf()
     fun addTask(task: Task) {
         data.add(0, task)
