@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_margin="8dp"
     android:background="@drawable/bg_item"
     android:id="@+id/item_task_layout">
+
 
     <TextView
         android:id="@+id/tv_title"
@@ -15,7 +17,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="20sp"
-        tools:text="Title" />
+        tools:text="Title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_desc"
@@ -23,6 +27,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textSize="16sp"
-        tools:text="Description" />
+        tools:text="Description"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="@id/tv_title"/>
 
-</LinearLayout>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkbox_cheese"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:button="@drawable/check_box_selector"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

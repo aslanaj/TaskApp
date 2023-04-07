@@ -9,7 +9,7 @@
         android:id="@+id/navigation_home"
         android:name="com.example.taskapp.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -37,4 +37,10 @@
         android:name="com.example.taskapp.ui.onBoard.OnBoardFragment"
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.taskapp.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
+
 </navigation>

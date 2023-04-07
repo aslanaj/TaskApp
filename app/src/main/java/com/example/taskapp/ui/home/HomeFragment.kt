@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         adapter = TaskAdapter(this::onLongClick, requireContext())
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,7 +45,6 @@ class HomeFragment : Fragment() {
             }
         }
     }
-
     private fun onLongClick(task: Task) {
         val alertDialog = AlertDialog.Builder(requireContext())
         alertDialog.setTitle("Delete task")

@@ -67,11 +67,9 @@ class ProfileFragment : Fragment() {
                     after: Int
                 ) {
                 }
-
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     pref.saveProfileNameText(s.toString())
                 }
-
                 override fun afterTextChanged(s: Editable?) {}
             })
         }

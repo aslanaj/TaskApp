@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.AuthFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_auth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_item"
+        android:drawableStart="@drawable/ic_google"
+        android:padding="16dp"
+        android:text="@string/btn_google"
+        android:textSize="18sp" />
+
+</FrameLayout>

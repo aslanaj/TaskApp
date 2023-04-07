@@ -14,4 +14,5 @@
     <string name="tv_next">Next</string>
     <string name="et_any">Any text</string>
     <string name="btn_update">Update</string>
+    <string name="btn_google">Sign In With Google</string>
 </resources>
