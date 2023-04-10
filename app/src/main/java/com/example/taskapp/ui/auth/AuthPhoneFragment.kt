@@ -20,9 +20,6 @@ class AuthPhoneFragment : Fragment() {
     private lateinit var binding: FragmentAuthPhoneBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var number: String
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,11 +30,9 @@ class AuthPhoneFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         auth = FirebaseAuth.getInstance()
         listener()
     }
-
     private fun listener() {
         binding.btnSendOtp.setOnClickListener {
             number = binding.etPhoneNumber.text.trim().toString()
@@ -48,7 +43,7 @@ class AuthPhoneFragment : Fragment() {
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)       // Phone number to verify
                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(this.requireActivity())                 // Activity (for callback binding)
+                        .setActivity(requireActivity())                 // Activity (for callback binding)
                         .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
                         .build()
                     PhoneAuthProvider.verifyPhoneNumber(options)
@@ -103,10 +98,6 @@ class AuthPhoneFragment : Fragment() {
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
-            // This callback is invoked in an invalid request for verification is made,
-            // for instance if the the phone number format is not valid.
-
-
             if (e is FirebaseAuthInvalidCredentialsException) {
                 // Invalid request
                 Log.w("aslan", "onVerificationFailed: ${e.toString()}")
@@ -117,8 +108,6 @@ class AuthPhoneFragment : Fragment() {
 //                        else if (e is FirebaseAuthMissingActivityForRecaptchaException) {
 //                // reCAPTCHA verification attempted with null Activity
 //            }
-
-
         }
 
         override fun onCodeSent(

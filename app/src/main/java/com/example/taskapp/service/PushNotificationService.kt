@@ -19,6 +19,7 @@ class PushNotificationService : FirebaseMessagingService() {
             NotificationManager.IMPORTANCE_HIGH
         )
         getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
+
         Log.e("ololo", "onMessageReceived: ${message.notification?.title}")
         val notification = android.app.Notification.Builder(this, CHANNEL_ID)
 

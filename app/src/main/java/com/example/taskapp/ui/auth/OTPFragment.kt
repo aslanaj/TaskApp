@@ -11,7 +11,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.example.taskapp.MainActivity
 import com.example.taskapp.R
 import com.example.taskapp.databinding.FragmentOTPBinding
@@ -20,7 +19,7 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import java.util.concurrent.TimeUnit
 
-class OTPFragment : Fragment() {
+class OTPFragment : androidx.fragment.app.Fragment() {
 
     private lateinit var binding: FragmentOTPBinding
     private lateinit var auth: FirebaseAuth
@@ -38,13 +37,16 @@ class OTPFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
-        val intent = requireActivity().intent
-        if (intent != null && intent.hasExtra("OTP") && intent.hasExtra("resendToken") && intent.hasExtra("phoneNumber")) {
-            OTP = intent.getStringExtra("OTP").toString()
-            resendToken = intent.getParcelableExtra("resendToken")!!
-            phoneNumber = intent.getStringExtra("phoneNumber")!!
+        val bundle = arguments
+        if (bundle != null && bundle.containsKey("OTP")
+            && bundle.containsKey("resendToken")
+            && bundle.containsKey("phoneNumber")
+        ) {
+            OTP = bundle.getString("OTP").toString()
+            resendToken = bundle.getParcelable("resendToken")!!
+            phoneNumber = bundle.getString("phoneNumber").toString()
         } else {
-            // handle missing extras
+            // handle missing arguments
         }
 
         addTextChangeListener()
@@ -88,7 +90,8 @@ class OTPFragment : Fragment() {
             }
         }
     }
-    private fun resendOTPVisibility(){
+
+    private fun resendOTPVisibility() {
         binding.apply {
             etInputCode1.setText("")
             etInputCode2.setText("")
@@ -132,7 +135,6 @@ class OTPFragment : Fragment() {
         override fun onVerificationFailed(e: FirebaseException) {
             // This callback is invoked in an invalid request for verification is made,
             // for instance if the the phone number format is not valid.
-
 
             if (e is FirebaseAuthInvalidCredentialsException) {
                 // Invalid request
@@ -199,13 +201,11 @@ class OTPFragment : Fragment() {
             etInputCode4.addTextChangedListener(EditTextWatcher(etInputCode4))
             etInputCode5.addTextChangedListener(EditTextWatcher(etInputCode5))
             etInputCode6.addTextChangedListener(EditTextWatcher(etInputCode6))
-
         }
     }
 
     inner class EditTextWatcher(private val view: View) : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
         }
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -222,6 +222,5 @@ class OTPFragment : Fragment() {
                 R.id.et_input_code6 -> if (text.isEmpty()) binding.etInputCode5.requestFocus()
             }
         }
-
     }
 }
