@@ -15,4 +15,17 @@
     <string name="et_any">Any text</string>
     <string name="btn_update">Update</string>
     <string name="btn_google">Sign In With Google</string>
+    <string name="btn_auth_with_number">Sign in With Phone Number</string>
+    <string name="tv_otp_verification">OTP Verification</string>
+    <string name="tv_otp_send">We wil send you an OTP on the given mobile number</string>
+    <string name="tv_enter_Mnumber">Enter your mobile number</string>
+    <string name="btn_send_otp">Send OTP</string>
+    <string name="et_sent_code">Please enter a code, which was sent to your mobile number</string>
+    <string name="tv_don_t_receive_code">Don\'t receive code?</string>
+    <string name="tv_send_code_again">Send code again</string>
+    <string name="toast_et_number">Please enter Correct Number</string>
+    <string name="et_enter_number">Please Enter Number</string>
+    <string name="toas_auth_success">Athenticate Successfullly</string>
+    <string name="toast_enter_code">please Enter Code</string>
+    <string name="toast_enter_correct_code">Please Enter Correct Code</string>
 </resources>

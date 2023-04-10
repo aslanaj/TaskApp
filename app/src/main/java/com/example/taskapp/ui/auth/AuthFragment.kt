@@ -45,6 +45,9 @@ class AuthFragment : Fragment() {
         binding.btnAuth.setOnClickListener {
                 auth()
             }
+        binding.btnAuthWithPhoneNumber.setOnClickListener {
+            findNavController().navigate(R.id.authPhoneFragment)
+        }
     }
 
     private fun auth() {
