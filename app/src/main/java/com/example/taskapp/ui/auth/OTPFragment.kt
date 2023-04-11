@@ -57,12 +57,12 @@ class OTPFragment : androidx.fragment.app.Fragment() {
     private fun listener() {
         binding.apply {
             btnSendOtp.setOnClickListener {
-                val typeOTP = (binding.etInputCode1.text.toString()
-                        + binding.etInputCode2.text.toString()
-                        + binding.etInputCode3.text.toString()
-                        + binding.etInputCode4.text.toString()
-                        + binding.etInputCode5.text.toString()
-                        + binding.etInputCode6.text.toString())
+                val typeOTP = (etInputCode1.text.toString()
+                        + etInputCode2.text.toString()
+                        + etInputCode3.text.toString()
+                        + etInputCode4.text.toString()
+                        + etInputCode5.text.toString()
+                        + etInputCode6.text.toString())
                 if (typeOTP.isNotEmpty()) {
                     if (typeOTP.length == 6) {
                         val credential: PhoneAuthCredential =
@@ -168,7 +168,6 @@ class OTPFragment : androidx.fragment.app.Fragment() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     binding.proBar2.visibility = View.VISIBLE
-
                     Toast.makeText(
                         requireContext(),
                         getString(R.string.toas_auth_success),
@@ -219,7 +218,7 @@ class OTPFragment : androidx.fragment.app.Fragment() {
                 R.id.et_input_code3 -> if (text.length == 1) binding.etInputCode4.requestFocus() else if (text.isEmpty()) binding.etInputCode2.requestFocus()
                 R.id.et_input_code4 -> if (text.length == 1) binding.etInputCode5.requestFocus() else if (text.isEmpty()) binding.etInputCode3.requestFocus()
                 R.id.et_input_code5 -> if (text.length == 1) binding.etInputCode6.requestFocus() else if (text.isEmpty()) binding.etInputCode4.requestFocus()
-                R.id.et_input_code6 -> if (text.isEmpty()) binding.etInputCode5.requestFocus()
+                R.id.et_input_code6 -> if (text.isEmpty())   binding.etInputCode5.requestFocus()
             }
         }
     }
