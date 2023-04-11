@@ -28,12 +28,7 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pref = Pref(requireContext())
-        binding.apply {
-            etEny.setText(pref.getAnyText())
-            btnSave.setOnClickListener {
-                pref.saveAnyText(binding.etEny.text.toString())
-            }
-        }
+        
     }
 
     override fun onDestroyView() {

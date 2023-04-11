@@ -35,14 +35,14 @@ class AuthPhoneFragment : Fragment() {
     }
     private fun listener() {
         binding.btnSendOtp.setOnClickListener {
-            number = binding.etPhoneNumber.text.trim().toString()
+            number = binding.etPhoneNumber.text!!.trim().toString()
             if (number.isNotEmpty()) {
                 if (number.length == 9) {
                     number = "+996$number"
                     binding.proBar1.visibility = View.VISIBLE
                     val options = PhoneAuthOptions.newBuilder(auth)
                         .setPhoneNumber(number)       // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
+                         .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
                         .setActivity(requireActivity())                 // Activity (for callback binding)
                         .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
                         .build()
