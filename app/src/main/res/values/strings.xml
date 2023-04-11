@@ -28,4 +28,8 @@
     <string name="toas_auth_success">Athenticate Successfullly</string>
     <string name="toast_enter_code">please Enter Code</string>
     <string name="toast_enter_correct_code">Please Enter Correct Code</string>
+    <string name="str_title">Title</string>
+    <string name="str_desc">Description</string>
+    <string name="tv_prof_name">Profile Name</string>
+    <string name="tv_phone_number">Phone Number</string>
 </resources>

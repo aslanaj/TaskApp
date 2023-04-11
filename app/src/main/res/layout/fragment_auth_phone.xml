@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.auth.AuthPhoneFragment">
 
     <LinearLayout
@@ -48,64 +48,57 @@
             android:textColor="@color/orange"
             android:textSize="16sp" />
 
-        <LinearLayout
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_title"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_margin="16dp"
+            android:hint="@string/tv_phone_number"
+            android:textColor="@color/orange"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:endIconMode="clear_text"
+            app:prefixText="+996"
+            app:prefixTextColor="@color/orange"
+            app:startIconDrawable="@drawable/ic_phone">
 
-            <EditText
-                android:id="@+id/et_phone_code_region"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"
-                android:layout_marginStart="16dp"
-                android:gravity="center"
-                android:background="@drawable/bg_et"
-                android:textColorHint="@color/orange"
-                android:hint="+996"
-                android:padding="8dp"
-                android:textSize="28sp" />
-
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="16dp"
-                android:gravity="center"
-                android:background="@drawable/bg_et"
-                android:hint="777 88 99 00"
-                android:textColorHint="@color/orange"
-                android:padding="8dp"
-                android:textSize="28sp" />
+                android:textColor="@color/orange"
+                android:inputType="number"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-        </LinearLayout>
 
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_send_otp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_send_otp"
-            android:backgroundTint="@color/light_green"
-            android:textColor="@color/white"
-            app:cornerRadius="16dp"
-            android:textSize="28sp"
-            android:id="@+id/btn_send_otp"
             android:layout_marginHorizontal="16dp"
-            />
-        
+            android:backgroundTint="@color/light_green"
+            android:text="@string/btn_send_otp"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:cornerRadius="16dp" />
+
+
         <ProgressBar
+            android:id="@+id/pro_bar_1"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:indeterminateTintMode="src_in"
             android:indeterminateTint="@color/orange"
-            android:visibility="gone"
-            android:id="@+id/pro_bar_1"/>
+            android:indeterminateTintMode="src_in"
+            android:visibility="gone" />
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

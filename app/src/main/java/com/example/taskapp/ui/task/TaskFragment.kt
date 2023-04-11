@@ -26,13 +26,12 @@ class TaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSave.setOnClickListener {
-            if (binding.etTitle.text.isNotEmpty()) {
+            if (binding.etTitle.text!!.isNotEmpty()) {
                 save()
                 Toast.makeText(requireContext(), "Successfully Saved", Toast.LENGTH_SHORT).show()
             } else binding.etTitle.error = "Это поле обязательна для заполнения"
         }
     }
-
     private fun save() {
         val data = Task(
             title = binding.etTitle.text.toString(),
