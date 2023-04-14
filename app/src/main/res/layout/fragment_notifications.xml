@@ -4,67 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="16dp"
-    android:paddingVertical="32dp"
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment">
 
 
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_title"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_board"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/str_title"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:boxCornerRadiusBottomEnd="16dp"
-        app:boxCornerRadiusBottomStart="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
-        app:boxCornerRadiusTopStart="16dp"
-        app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/ic_launcher">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_task"/>
 
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_desc"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/str_desc"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        android:layout_marginTop="16dp"
-        app:boxCornerRadiusBottomEnd="16dp"
-        app:boxCornerRadiusBottomStart="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
-        app:boxCornerRadiusTopStart="16dp"
-        app:endIconMode="clear_text"
-        app:startIconDrawable="@drawable/ic_description">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_save"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_save"
-        android:textColor="@color/white"
-        android:textSize="32sp"
-        app:cornerRadius="16dp" />
 
 </LinearLayout>
