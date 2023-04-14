@@ -17,8 +17,6 @@ class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null
     private lateinit var db: FirebaseFirestore
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     private lateinit var pref: Pref
     override fun onCreateView(
